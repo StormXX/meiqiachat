@@ -1,7 +1,7 @@
 #import "MeiqiachatPlugin.h"
 
 #import <MeiQiaSDK/MQManager.h>
-#import <MQChatViewManager.h>
+#import "MQChatViewManager.h"
 
 @implementation MeiqiachatPlugin
 
