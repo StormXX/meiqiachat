@@ -49,7 +49,7 @@ public class MeiqiachatPlugin implements MethodCallHandler {
   * 初始化sdk
   */ 
   public void setup(MethodCall call, Result result) {
-    MQManager.setDebugMode(true);
+    MQManager.setDebugMode(false);
     String meiqiaKey = call.arguments.toString();
     MQConfig.init(registrar.context(), meiqiaKey, new OnInitCallback() {
         @Override
@@ -65,7 +65,12 @@ public class MeiqiachatPlugin implements MethodCallHandler {
   * 初始化聊天页面 isPush 为 iOS 跳转方式 默认present 
   */ 
   public void toChat(MethodCall call, Result result) {
-    Intent intent = new MQIntentBuilder(registrar.context()).build();
+    String name = call.argument("name");
+    String tel = call.argument("tel");
+    HashMap<String, String> clientInfo = new HashMap<>();
+    clientInfo.put("name", name);
+    clientInfo.put("tel", tel);
+    Intent intent = new MQIntentBuilder(registrar.context()).setClientInfo(clientInfo).build();
     registrar.context().startActivity(intent);
   }
   

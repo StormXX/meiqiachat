@@ -43,10 +43,13 @@
 /**
 * 初始化聊天页面 isPush 为 iOS 跳转方式 默认present
 */ 
-- (void)pushToMeiqiaVCWith:(NSNumber* ) isPush{
-
+- (void)pushToMeiqiaVCWith:(NSDictionary* ) args{
+    NSNumber* isPush = args[@"isPush"];
+    NSString* tel = ars[@"tel"];
+    NSString* name = ars[@"name"];
     UIViewController *viewController = [UIApplication sharedApplication].delegate.window.rootViewController;
     MQChatViewManager *chatViewManager = [[MQChatViewManager alloc] init];
+    [chatViewManager setClientInfo:@{@"name":name,@"tel":tel}];
     [chatViewManager setoutgoingDefaultAvatarImage:[UIImage imageNamed:@"meiqia-icon"]];
     if (isPush.boolValue) {
         [chatViewManager pushMQChatViewControllerInViewController:viewController];
