@@ -13,6 +13,9 @@ import com.meiqia.core.callback.OnInitCallback;
 import com.meiqia.meiqiasdk.util.MQConfig;
 import com.meiqia.meiqiasdk.util.MQIntentBuilder;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 /** MeiqiachatPlugin */
 public class MeiqiachatPlugin implements MethodCallHandler {

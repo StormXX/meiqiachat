@@ -45,8 +45,8 @@
 */ 
 - (void)pushToMeiqiaVCWith:(NSDictionary* ) args{
     NSNumber* isPush = args[@"isPush"];
-    NSString* tel = ars[@"tel"];
-    NSString* name = ars[@"name"];
+    NSString* tel = args[@"tel"];
+    NSString* name = args[@"name"];
     UIViewController *viewController = [UIApplication sharedApplication].delegate.window.rootViewController;
     MQChatViewManager *chatViewManager = [[MQChatViewManager alloc] init];
     [chatViewManager setClientInfo:@{@"name":name,@"tel":tel}];
