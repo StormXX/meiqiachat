@@ -70,9 +70,11 @@ public class MeiqiachatPlugin implements MethodCallHandler {
   public void toChat(MethodCall call, Result result) {
     String name = call.argument("name");
     String tel = call.argument("tel");
+    String version = call.argument("version");
     HashMap<String, String> clientInfo = new HashMap<>();
     clientInfo.put("name", name);
     clientInfo.put("tel", tel);
+    clientInfo.put("version", version);
     Intent intent = new MQIntentBuilder(registrar.context()).setClientInfo(clientInfo).build();
     registrar.context().startActivity(intent);
   }

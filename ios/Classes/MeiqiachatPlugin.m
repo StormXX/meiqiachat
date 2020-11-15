@@ -47,9 +47,10 @@
     NSNumber* isPush = args[@"isPush"];
     NSString* tel = args[@"tel"];
     NSString* name = args[@"name"];
+    NSString* version = args[@"version"];
     UIViewController *viewController = [UIApplication sharedApplication].delegate.window.rootViewController;
     MQChatViewManager *chatViewManager = [[MQChatViewManager alloc] init];
-    [chatViewManager setClientInfo:@{@"name":name,@"tel":tel}];
+    [chatViewManager setClientInfo:@{@"name":name,@"tel":tel,@"version":version}];
     [chatViewManager setoutgoingDefaultAvatarImage:[UIImage imageNamed:@"meiqia-icon"]];
     if (isPush.boolValue) {
         [chatViewManager pushMQChatViewControllerInViewController:viewController];
