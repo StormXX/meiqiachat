@@ -11,13 +11,13 @@ class Meiqiachat {
   }
 
   /// 初始化聊天页面 isPush 为 iOS 跳转方式 默认present
-  static Future<void> toChat(
-      {bool isPush, String name, String tel, String version}) async {
+  static Future<void> toChat({
+    bool isPush,
+    Map<String, String> attributes,
+  }) async {
     await _channel.invokeMethod('toChat', {
       'isPush': isPush,
-      'name': name,
-      'tel': tel,
-      'versino': version,
+      'attributes': attributes,
     });
   }
 }

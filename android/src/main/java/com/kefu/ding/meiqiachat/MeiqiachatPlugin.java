@@ -68,13 +68,7 @@ public class MeiqiachatPlugin implements MethodCallHandler {
   * 初始化聊天页面 isPush 为 iOS 跳转方式 默认present 
   */ 
   public void toChat(MethodCall call, Result result) {
-    String name = call.argument("name");
-    String tel = call.argument("tel");
-    String version = call.argument("version");
-    HashMap<String, String> clientInfo = new HashMap<>();
-    clientInfo.put("name", name);
-    clientInfo.put("tel", tel);
-    clientInfo.put("version", version);
+    HashMap<String, String> clientInfo = call.argument("attributes");
     Intent intent = new MQIntentBuilder(registrar.context()).setClientInfo(clientInfo).build();
     registrar.context().startActivity(intent);
   }
